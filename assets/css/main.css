@@ -17,7 +17,8 @@ footer .text-muted {
 
 .icon {
     height: 80px;
-    margin: 15px
+    margin: 15px;
+    border-radius: 20%;
 }
 
 .card .col-md-8 {
@@ -37,5 +38,5 @@ footer .text-muted {
 .info {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 100px;
+    margin-top: 90px;
 }

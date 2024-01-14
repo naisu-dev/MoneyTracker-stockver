@@ -2,7 +2,7 @@
   const data = await fetch("https://api.taka.cf/v1/money")
     .then(res=>res.json());
 
-  let money = data.data.sort((m1,m2)=>m2.mount - m1.mount);
+  let money = data.data.toSorted((m1,m2)=>m2.mount - m1.mount);
 
   money.length = 15
 
