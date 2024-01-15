@@ -1,19 +1,19 @@
 (async()=>{
+  const rank = document.querySelector(".rank");
+  const next = document.getElementById("next");
+
   const data = await fetch("https://api.taka.cf/v1/money")
     .then(res=>res.json());
 
   data.data.sort((m1,m2)=>m2.amount - m1.amount);
 
-  const money = await getHtml(data.data,0,10);
-
-  const rank = document.querySelector(".rank");
-  const count = document.querySelectorAll(".card");
+  let count = 10;
+  const money = await getHtml(data.data,0,count);
 
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
-  document.getElementById("next").addEventListener("click",async()=>{
-    const money = await getHtml(data.data,count.length+1,count.length+10);
-    console.log(count.length)
+  next.addEventListener("click",async()=>{
+    const money = await getHtml(data.data,count+1,count+10);
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
