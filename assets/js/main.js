@@ -14,6 +14,7 @@
 
   next.addEventListener("click",async()=>{
     const money = await getHtml(data.data,count,count+10);
+    count += 10;
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
