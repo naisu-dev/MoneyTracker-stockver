@@ -7,10 +7,10 @@
   data.data.sort((m1,m2)=>m2.amount - m1.amount);
 
   let count = 10;
-  await addRank(data.data,0,count);
+  addRank(data.data,0,count);
 
   next.addEventListener("click",async()=>{
-    await addRank(data.data,count,count+10);
+    addRank(data.data,count,count+10);
     count += 10;
   })
 })();
@@ -18,9 +18,9 @@
 async function addRank(data,start,end){
   const rank = document.querySelector(".rank");
 
-  Promise.all(data.slice(start,end).map(async(money,i)=>{
+  await Promise.all(data.slice(start,end).map(async(money,i)=>{
     const user = await fetchUser(money.id);
-    await sleep(100);
+    await sleep(300);
 
     rank.insertAdjacentHTML("beforeend",
       `<div class="card mb-3">
