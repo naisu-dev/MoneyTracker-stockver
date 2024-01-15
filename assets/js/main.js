@@ -12,7 +12,7 @@
 
   document.getElementById("next").addEventListener("click",async()=>{
     const money = await getHtml(data.data,rank.length+1,rank.length+10);
-
+    console.log(rank.length)
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
@@ -22,7 +22,7 @@ async function getHtml(data,start,end){
     const user = await fetchUser(money.id);
 
     return `<div class="card mb-3">
-      <div class="card-header"><strong>${i+start}位</strong></div>
+      <div class="card-header"><strong>${i+start+1}位</strong></div>
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${user.avatarURL}" class="icon" height="80">
