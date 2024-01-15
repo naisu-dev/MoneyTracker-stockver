@@ -12,7 +12,7 @@
 
   const next = document.getElementById("next");
   next.addEventListener("click",async()=>{
-    const money = await getHtml(data.data.slice(rank.length+1,rank.length));
+    const money = await getHtml(data.data.slice(rank.length+1,rank.length+10));
 
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
