@@ -7,12 +7,13 @@
   const money = await getHtml(data.data,0,10);
 
   const rank = document.querySelector(".rank");
+  const count = document.querySelectorAll(".rank .card");
 
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
   document.getElementById("next").addEventListener("click",async()=>{
-    const money = await getHtml(data.data,rank.length+1,rank.length+10);
-    console.log(rank.length)
+    const money = await getHtml(data.data,count.length+1,count.length+10);
+    console.log(count.length)
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
