@@ -4,7 +4,7 @@
 
   data.data.sort((m1,m2)=>m2.amount - m1.amount);
 
-  const money = await getHtml(data.data.slice(0,10));
+  const money = await getHtml(data.data,0,10);
 
   const rank = document.querySelector(".rank");
 
