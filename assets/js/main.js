@@ -4,15 +4,17 @@
 
   data.data.sort((m1,m2)=>m2.amount - m1.amount);
 
-  const money = await getHtml(data.data.slice(0,9));
+  const money = await getHtml(data.data.slice(0,10));
 
   const rank = document.querySelector(".rank");
 
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
   const next = document.getElementById("next");
-  next.addEventListener("submit",async()=>{
+  next.addEventListener("click",async()=>{
+    const money = await getHtml(data.data.slice(rank.length+1,rank.length));
 
+    rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
 
