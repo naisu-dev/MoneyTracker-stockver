@@ -19,7 +19,7 @@ async function addRank(data,start,end){
   const rank = document.querySelector(".rank");
 
   const money = data.slice(start,end);
-  for(let i = 0;i >= money.length;i++){
+  for(let i = 0;i < money.length;i++){
     const user = await fetchUser(money[i].id);
     await sleep(300);
 
