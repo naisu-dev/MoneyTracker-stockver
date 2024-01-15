@@ -18,8 +18,9 @@
 async function addRank(data,start,end){
   const rank = document.querySelector(".rank");
 
-  await Promise.all(data.slice(start,end).map(async(money,i)=>{
-    const user = await fetchUser(money.id);
+  const money = data.slice(start,end);
+  for(let i = 0;i >= money.length;i++){
+    const user = await fetchUser(money[i].id);
     await sleep(300);
 
     rank.insertAdjacentHTML("beforeend",
@@ -31,13 +32,13 @@ async function addRank(data,start,end){
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money.amount} 円</strong></h2>
+                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money[i].amount} 円</strong></h2>
               </div>
             </div>
         </div>
       </div>`
     )
-  }));
+  }
 }
 
 async function fetchUser(id){
