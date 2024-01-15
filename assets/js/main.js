@@ -7,7 +7,7 @@
   const money = await getHtml(data.data,0,10);
 
   const rank = document.querySelector(".rank");
-  const count = document.querySelectorAll(".rank .card");
+  const count = document.querySelectorAll(".card");
 
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
