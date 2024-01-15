@@ -41,3 +41,8 @@ footer .text-muted {
     margin-top: 80px;
     margin-bottom: 30px;
 }
+
+#next {
+    padding-left: 15%;
+    padding-right: 15%;
+}
