@@ -2,11 +2,30 @@
   const data = await fetch("https://api.taka.cf/v1/money")
     .then(res=>res.json());
 
-  let money = data.data.toSorted((m1,m2)=>m2.amount - m1.amount);
+  data.data.toSorted((m1,m2)=>m2.amount - m1.amount);
 
-  money.length = 10
+  const money = await getHtml(data.data.slice(0,9));
 
-  money = await Promise.all(money.map(async(money,i)=>{
+  const rank = document.querySelector(".rank");
+
+  rank.insertAdjacentHTML("beforeend",money.join(""));
+
+  const next = document.getElementById("next");
+  next.addEventListener("submit",async()=>{
+
+  })
+})();
+
+async function fetchUser(id){
+  const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
+    .then(res=>res.json())
+    .catch(()=>{});
+
+  return data.data;
+}
+
+async function getHtml(data){
+  return await Promise.all(data.map(async(money,i)=>{
     const user = await fetchUser(money.id);
 
     return `<div class="card mb-3">
@@ -23,16 +42,4 @@
         </div>
       </div>`
   }));
-
-    const rank = document.querySelector(".rank");
-
-    rank.insertAdjacentHTML("beforeend",money.join(""));
-})();
-
-async function fetchUser(id){
-  const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
-    .then(res=>res.json())
-    .catch(()=>{});
-
-  return data.data;
 }
