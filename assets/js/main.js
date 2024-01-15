@@ -41,10 +41,7 @@ async function getHtml(data,start,end){
 
 async function fetchUser(id){
   const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
-    .then(res=>{
-      console.log(res.status)
-      return res.json()
-    })
+    .then(res=>res.json())
     .catch(()=>{});
 
   return data.data;
