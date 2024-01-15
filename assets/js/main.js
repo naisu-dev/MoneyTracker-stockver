@@ -10,7 +10,7 @@
     const user = await fetchUser(money.id);
 
     return `<div class="card mb-3">
-      <div class="card-header">${i+1}位</div>
+      <div class="card-header"><strong>${i+1}位</strong></div>
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${user.avatarURL}" class="icon" height="80">
