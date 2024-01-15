@@ -27,7 +27,7 @@ async function getHtml(data,start,end){
       <div class="card-header"><strong>${i+start+1}位</strong></div>
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="${user.avatarURL}" class="icon" height="80">
+          <img src="${user.avatarURL||"https://cdn.discordapp.com/embed/avatars/0.png"}" class="icon" height="80">
           </div>
             <div class="col-md-8">
               <div class="card-body">
