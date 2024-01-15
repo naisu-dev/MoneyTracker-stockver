@@ -13,7 +13,7 @@
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
   next.addEventListener("click",async()=>{
-    const money = await getHtml(data.data,count+1,count+10);
+    const money = await getHtml(data.data,count,count+10);
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
