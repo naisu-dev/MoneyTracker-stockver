@@ -4,12 +4,13 @@
 
   let money = data.data.toSorted((m1,m2)=>m2.amount - m1.amount);
 
-  money.length = 15
+  money.length = 10
 
-  money = await Promise.all(money.map(async(money)=>{
+  money = await Promise.all(money.map(async(money,i)=>{
     const user = await fetchUser(money.id);
 
     return `<div class="card mb-3">
+      <div class="card-header">${i+1}位</div>
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${user.avatarURL}" class="icon" height="80">
