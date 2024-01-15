@@ -2,7 +2,7 @@
   const data = await fetch("https://api.taka.cf/v1/money")
     .then(res=>res.json());
 
-  data.data.toSorted((m1,m2)=>m2.amount - m1.amount);
+  data.data.sort((m1,m2)=>m2.amount - m1.amount);
 
   const money = await getHtml(data.data.slice(0,9));
 
