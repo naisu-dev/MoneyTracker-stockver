@@ -10,28 +10,19 @@
 
   rank.insertAdjacentHTML("beforeend",money.join(""));
 
-  const next = document.getElementById("next");
-  next.addEventListener("click",async()=>{
-    const money = await getHtml(data.data.slice(rank.length+1,rank.length+10));
+  document.getElementById("next").addEventListener("click",async()=>{
+    const money = await getHtml(data.data,rank.length+1,rank.length+10);
 
     rank.insertAdjacentHTML("beforeend",money.join(""));
   })
 })();
 
-async function fetchUser(id){
-  const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
-    .then(res=>res.json())
-    .catch(()=>{});
-
-  return data.data;
-}
-
-async function getHtml(data){
-  return await Promise.all(data.map(async(money,i)=>{
+async function getHtml(data,start,end){
+  return await Promise.all(data.slice(start,end).map(async(money,i)=>{
     const user = await fetchUser(money.id);
 
     return `<div class="card mb-3">
-      <div class="card-header"><strong>${i+1}位</strong></div>
+      <div class="card-header"><strong>${i+start}位</strong></div>
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${user.avatarURL}" class="icon" height="80">
@@ -44,4 +35,12 @@ async function getHtml(data){
         </div>
       </div>`
   }));
+}
+
+async function fetchUser(id){
+  const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
+    .then(res=>res.json())
+    .catch(()=>{});
+
+  return data.data;
 }
