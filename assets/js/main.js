@@ -18,8 +18,7 @@
 async function addRank(data,start,end){
   const rank = document.querySelector(".rank");
 
-  const money = data.slice(start,end);
-  for(let i;i >= money.length;i++){
+  Promise.all(data.slice(start,end).map(async(money,i)=>{
     const user = await fetchUser(money.id);
     await sleep(100);
 
@@ -38,7 +37,7 @@ async function addRank(data,start,end){
         </div>
       </div>`
     )
-  };
+  }));
 }
 
 async function fetchUser(id){
