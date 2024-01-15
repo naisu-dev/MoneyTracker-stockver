@@ -21,7 +21,7 @@ async function addRank(data,start,end){
   const money = data.slice(start,end);
   for(let i = 0;i < money.length;i++){
     const user = await fetchUser(money[i].id);
-    await sleep(100);
+    await sleep(50);
 
     rank.insertAdjacentHTML("beforeend",
       `<div class="card mb-3">
