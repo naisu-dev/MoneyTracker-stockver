@@ -1,7 +1,7 @@
 (async()=>{
   const next = document.getElementById("next");
 
-  const data = await fetch("https://api.taka.cf/v1/money")
+  const data = await fetch("https://api.takasumibot.com/v1/money")
     .then(res=>res.json());
 
   data.data.sort((m1,m2)=>m2.amount - m1.amount);
@@ -43,7 +43,7 @@ async function addRank(data,start,end){
 }
 
 async function fetchUser(id){
-  const data = await fetch(`https://api.taka.cf/v1/discord/user?id=${id}`)
+  const data = await fetch(`https://api.takasumibot.com/v1/discord/user?id=${id}`)
     .then(res=>res.json())
     .catch(()=>{});
 
