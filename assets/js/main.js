@@ -31,7 +31,7 @@ async function addRank(data,start,end){
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money[i].stock} 円</strong></h2>
+                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money[i].stock} 個</strong></h2>
               </div>
             </div>
         </div>
