@@ -4,7 +4,7 @@
   const data = await fetch("https://api.takasumibot.com/v1/money")
     .then(res=>res.json());
 
-  data.data.sort((m1,m2)=>m2.amount - m1.amount);
+  data.data.sort((m1,m2)=>m2.stock - m1.stock);
 
   let count = 10;
   addRank(data.data,0,count);
@@ -31,7 +31,7 @@ async function addRank(data,start,end){
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money[i].amount} 円</strong></h2>
+                <h2 class="card-title"><strong>${user?.tag||"不明なユーザー"} - ${money[i].stock} 円</strong></h2>
               </div>
             </div>
         </div>
